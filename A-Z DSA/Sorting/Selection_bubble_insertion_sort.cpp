@@ -6,6 +6,14 @@ using namespace std;
  
 
 //function
+void print_arr(int arr[],int n){
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 void slection_sort(int arr[],int n){
     cout << "ok" <<endl;
     for (int i = 0; i <= n-2; i++)
@@ -23,11 +31,7 @@ void slection_sort(int arr[],int n){
     }
 
     cout << "ok" <<endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    print_arr(arr,n);
     
 }
 void bubble_sort(int arr[],int n){
@@ -43,32 +47,43 @@ void bubble_sort(int arr[],int n){
         }
         
     }
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    
+    print_arr(arr,n);
     
 }
 void insertion_sort(int arr[],int n){
-    for (int i = 0; i <=n-1; i++)
-    {
-        int j=i;
-        while(j>0 && arr[j-1] >arr[j])
-        {
-            int temp = arr[j-1];
-            arr[j-1] = arr[j];
-            arr[j] = temp;
-            j--;
-            
-        }
+    //one approach striver
+    // for (int i = 0; i <=n-1; i++)
+    // {
+    //     int j=i;
+    //     while(j>0 && arr[j-1] >arr[j])
+    //     {
+    //         int temp = arr[j-1];
+    //         arr[j-1] = arr[j];
+    //         arr[j] = temp;
+    //         j--;   
+    //     }
+    // }
+
+    //2nd approach coding ninja
+     // To traverse all the elements.
+    for(int i = 1; i < n; ++i) {
+        // To store the current element.
+        int curr = arr[i];
+        // To traverse previous elements.    
+        int idx = i - 1;
         
+        while(idx >= 0 && arr[idx] > curr) {
+            // Change elements position.
+            arr[idx + 1] = arr[idx];   
+            --idx;
+        }
+        // Change current element.
+        arr[idx + 1] = curr;
     }
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+
+    print_arr(arr,n);
+    
     
 }
 
