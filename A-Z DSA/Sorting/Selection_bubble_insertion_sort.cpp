@@ -49,7 +49,38 @@ void bubble_sort(int arr[],int n){
     }
     
     print_arr(arr,n);
+
+    //bubble sort using recursion
+     // Base Case: range == 1.
+    if (n == 1) return;
+
+    for (int j = 0; j <= n - 2; j++) {
+        if (arr[j] > arr[j + 1]) {
+            int temp = arr[j + 1];
+            arr[j + 1] = arr[j];
+            arr[j] = temp;
+        }
+    }
+
+    //Range reduced after recursion:
+    bubble_sort(arr, n - 1);
     
+}
+//insertion sort using recursion 
+void insertion_sort(int arr[], int i, int n) {
+
+    // Base Case: i == n.
+    if (i == n) return;
+
+    int j = i;
+    while (j > 0 && arr[j - 1] > arr[j]) {
+        int temp = arr[j - 1];
+        arr[j - 1] = arr[j];
+        arr[j] = temp;
+        j--;
+    }
+
+    insertion_sort(arr, i + 1, n);
 }
 void insertion_sort(int arr[],int n){
     //one approach striver
