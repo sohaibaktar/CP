@@ -1,2 +1,4 @@
-mp1[s1[i]]++;
-        mp2[s2[i]]++;
+#ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+        #endif
