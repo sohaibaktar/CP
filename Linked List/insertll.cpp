@@ -59,8 +59,6 @@ void print(Node* head){
         temp = temp->next;
     }
 }
-9434488369
-noblettr@gmail.com
 int findLength(Node* &head){
     Node* temp = head;
     int count =0;
@@ -100,6 +98,36 @@ void insertAtPosition(Node* &head,Node* &tail,int position, int data){
         prev->next = newNode;
     
 }
+Node* reverse(Node* prev, Node* curr){
+    //base case 
+    if(curr==NULL){
+        return prev;
+    }
+    //recursion will take care
+    Node* forword = curr->next;
+    curr->next = prev;
+
+    reverse(curr,forword);
+}
+Node* reverse_usingLoop(Node* head){
+    Node* prev = NULL;
+    while(head!=NULL){
+        Node* temp = head->next;
+         head->next = prev;
+         prev = head;
+         head = temp;
+    }
+    return prev;
+}
+Node* middleElement(Node* head){
+     Node* slow = head;
+    Node* fast = head;
+    while(fast!=NULL && fast->next!=NULL){
+        slow =  slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
 int main(){
     Node* head = NULL;
     Node* tail = NULL;
@@ -108,11 +136,23 @@ int main(){
     insertAtHead(head,tail, 20);
     insertAtTail(head,tail, 55);
     insertAtTail(head,tail, 69);
+    insertAtTail(head,tail, 70);
     insertAtPosition(head,tail, 3,100);
     cout << "printing..."<< endl;
     print(head);
     cout << endl;
+    Node* prev = NULL;
+    Node* curr = head;
+    head = reverse(prev,curr);
+    print(head);
+    cout << endl;
+    head = reverse_usingLoop(head);
+    print(head);
+    cout << endl;
     cout << findLength(head) << endl;
+
+    head = middleElement(head);
+    print(head);
 
 return 0;
 }
