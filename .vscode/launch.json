@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/GitHub/CP/Linked List",
-      "program": "d:/GitHub/CP/Linked List/build/Debug/outDebug",
+      "cwd": "d:/GitHub/CP",
+      "program": "d:/GitHub/CP/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
